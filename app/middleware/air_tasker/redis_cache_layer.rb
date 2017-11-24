@@ -30,7 +30,7 @@ module AirTasker
     end
     
     def to_s
-      "Token=#{token}, TTL=#{token_ttl}, RequestsAllowed=#{requests_allowed}, Interval=#{interval}"
+      "Token=#{token}, TTL=#{token_ttl}, RequestsAllowed=#{requests_allowed}, Interval=#{interval}, Count=#{request_count}"
     end
   end
 end

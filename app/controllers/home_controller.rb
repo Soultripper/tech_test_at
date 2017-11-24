@@ -12,6 +12,9 @@ class HomeController < ApplicationController
 
   end
 
+  def stats 
+    render plain: cache_layer.to_s
+  end
   protected
 
   def throttle_filter   

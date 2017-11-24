@@ -4,7 +4,7 @@ This repository contains a docker compose file to help set up the product quickl
 
 Download the repo, and then run
 
-**docker-compose up --build**
+**docker-compose up**
 
 To run the tests
 
@@ -13,6 +13,14 @@ To run the tests
 If all goes to plan, docker will pull the latest rails and redis images, then run the bundler and start the application  in production mode. Remove **-e production** from the **docker-compose.yml** file to start in Development mode (can stop with **docker-compose down**). 
 
 Note: If it says server is already running, can remove the PID with **docker-compose run web rm /app/tmp/pids/server.pid**
+
+Usage: 
+Once the application is running, the puma web server is listening on port 300, so open a local browser and visit
+**http://localhost:3000/home?api_key=<token>** e.g. http://localhost:3000/home?api_key=testing123
+
+To get debug info
+
+**http://localhost:3000/stats?api_key=<token>** e.g. http://localhost:3000/stats?api_key=testing123
 
 The application has several key facets
 
@@ -33,6 +41,6 @@ Redis is configured as a global **/config/initializers/redis.rb**
 
 I have used **dotenv** plugin to make it easy to map to ENV variables in the application. For the purposes of this test, I have set it to be used in  production. Normally these reside on securely on the server or are pulled in via a deployment script.
 
-I used redis commander to view my Redis keys via a web GUI for debugging. 
+I used redis commander to view my Redis keys via a web GUI for debugging. It took seconds to add the stats route thanks to the decoupled nature and SRP design implemented. The aim being that it should be easy to maintain the code. 
 
 Further discussion of the project is advised in person :)
