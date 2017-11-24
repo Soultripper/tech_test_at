@@ -1,6 +1,6 @@
 # Technical Test Instructions
 
-This reppository contains a docker compose file to help set up the product quickly
+This repository contains a docker compose file to help set up the product quickly
 
 Download the repo, and then run
 
